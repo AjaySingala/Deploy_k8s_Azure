@@ -35,5 +35,7 @@ jobs:
 
     - name: Deploy to AKS
       run: |
+        kubectl apply -f az_deployment.yaml
+        kubectl apply -f az_service.yaml
         kubectl set image deployment/demo-deployment demo=$IMAGE
         kubectl rollout status deployment/demo-deployment
